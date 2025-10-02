@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Chan Apologizes to Shinchan 💛🤖</title>
+<style>
+  body, html {
+    margin:0; padding:0;
+    height:100%; width:100%;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(120deg, #a0e7e5, #b4f8c8);
+    color:#333;
+    overflow:hidden;
+  }
+
+  .page {
+    display:none;
+    height:100%; width:100%;
+    position:absolute; top:0; left:0;
+    text-align:center;
+    padding:40px;
+    box-sizing:border-box;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+  }
+
+  .page.active {
+    display:flex;
+    animation: fadeIn 1s ease;
+  }
+
+  h1 {
+    font-size:3em;
+    color:#ff6b6b;
+    margin-bottom:20px;
+    text-shadow: 2px 2px #fff;
+  }
+
+  p {
+    font-size:20px;
+    max-width:700px;
+    margin:15px auto;
+    line-height:1.6;
+  }
+
+  button {
+    background:#ffb6b9;
+    color:#333;
+    border:none;
+    padding:14px 28px;
+    border-radius:30px;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.3s;
+    margin:10px;
+  }
+  button:hover { background:#ff8c94; }
+
+  @keyframes fadeIn { from {opacity:0; transform:translateY(30px);} to{opacity:1; transform:translateY(0);} }
+  #noBtn { position: relative; }
+
+  .gallery {
+    display:flex;
+    gap:20px;
+    overflow-x:auto;
+    max-width:80%;
+    padding:20px;
+  }
+
+  .gallery video {
+    width:250px;
+    height:150px;
+    border-radius:15px;
+    box-shadow:0 5px 10px rgba(0,0,0,0.3);
+    cursor:pointer;
+    transition: transform 0.3s;
+  }
+  .gallery video:hover { transform: scale(1.05); }
+
+  /* Confetti / dropping items */
+  .drop-container {
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:10;
+  }
+  .drop {
+    position:absolute;
+    width:30px;
+    height:30px;
+    animation: dropAnim linear infinite;
+  }
+  @keyframes dropAnim {
+    0% { transform: translateY(-50px) rotate(0deg); opacity:1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity:0; }
+  }
+
+  /* Character Images */
+  .character-img {
+    width:150px;
+    animation: bounce 1s infinite alternate;
+    margin:20px 0;
+  }
+  @keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-15px); }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="page active" id="page1">
+  <h1>Oopsie! 🤖</h1>
+  <img src="https://tse4.mm.bing.net/th/id/OIP.KBliJUF04WoOjhHthzKphgHaEm?pid=Api&P=0&h=180" alt="AI Chan" class="character-img">
+  <p>Hiiiiii my cutie angry Shinchan! I'am sorry babyy.... I Know i messed up😢<br>
+     But AI Chan is here to apologize! 💛<br>
+     Please forgive me!</p>
+  <button onclick="nextPage(2)">please check my Apology💌</button>
+</div>
+
+<div class="page" id="page2">
+  <h1>My Dear Shinchan Baby</h1>
+  <img src="https://tse1.mm.bing.net/th/id/OIP.i0WITDVvAtNZV7kFSODsmgHaEM?pid=Api&P=0&h=180" alt="Shinchan Pleading" class="character-img">
+  <p>You mean a lot to me! I never wanted to hurt you but doing that or anyother stuff you dont like, ik i mess up alot and everytime i say soorry after messing up. 
+     But trust me for only this time, whatever i do happens unintentionally... i don't mean to do any of it. please please please please for the lat only last time please forgive me.
+    If i do any any mistake small or big then ghost me forever because i desreve it, but for now plz forgive me. I can't handle the fact that you'r upset or angry with me.</p>
+  <button onclick="nextPage(3)">Next ➡️</button>
+</div>
+
+<div class="page" id="page3">
+  <h1> US 🎥</h1>
+  <div class="gallery">
+    <video controls src="WhatsApp Video 2025-10-03 at 02.06.52_07317845.mp4"></video>
+    <video controls src="WhatsApp Video 2025-10-03 at 02.06.54_c1b6b306.mp4"></video>
+    <video controls src="WhatsApp Video 2025-10-03 at 02.07.01_96cc77df.mp4"></video>
+  </div>
+  <button onclick="nextPage(4)">Next ➡️</button>
+</div>
+
+<div class="page" id="page4">
+  <h1>Will You plz Forgive Me, Shinchan? 😇💛</h1>
+  <img src="https://tse4.mm.bing.net/th/id/OIP.TIxD1FyaBbp92_8ZY6rsmQHaEK?pid=Api&P=0&h=180" class="character-img" alt="AI Chan">
+  <p>plz plz plz say yes babyy, </p>
+  <div>
+    <button onclick="forgive()">Yes 😄</button>
+    <button id="noBtn" onmouseover="runAway()">No 😈</button>
+  </div>
+</div>
+
+<div class="drop-container" id="drops"></div>
+
+<script>
+function nextPage(page){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page'+page).classList.add('active');
+  if(page===4){ startDropping(); }
+}
+
+function forgive(){
+  alert("Yay! Shinchan forgave AI Chan! 🎉 I woof you sooo much 💛");
+}
+
+function runAway(){
+  let btn=document.getElementById("noBtn");
+  let x=Math.floor(Math.random()*300)-150;
+  let y=Math.floor(Math.random()*300)-150;
+  btn.style.transform=`translate(${x}px, ${y}px)`;
+}
+
+function startDropping(){
+  const container = document.getElementById('drops');
+  setInterval(()=>{
+    const drop = document.createElement('img');
+    drop.src = 'heart.png'; // replace with heart or mini AI Chan icon
+    drop.className = 'drop';
+    drop.style.left = Math.random()*100 + 'vw';
+    drop.style.animationDuration = (3 + Math.random()*2) + 's';
+    drop.style.width = 20 + Math.random()*20 + 'px';
+    container.appendChild(drop);
+    setTimeout(()=>drop.remove(), 5000);
+  }, 300);
+}
+</script>
+
+</body>
+</html>
